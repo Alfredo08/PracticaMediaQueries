@@ -1,14 +1,161 @@
+:root {
+  --gray-color: #555555;
+  --light-color: #ffffff;
+  --lightgray-color: #f0f0f0;
+}
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+header {
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+}
+
+main {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.logo > img {
+  width: 50px;
+}
+
+.row {
+  display: flex;
+}
+
+.navbar {
+  background-color: var(--gray-color);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+
+.hamburger {
+  color: var(--light-color);
+  text-align: right;
+}
+
+.animate-right-to-left {
+  animation: animateRightToLeft 0.4s forwards;
+}
+
+.product {
+  border: 1px solid var(--lightgray-color);
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 1em;
+  text-align: center;
+}
+
+.product p {
+  text-align: left;
+}
+
+.social {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  list-style: none;
+  padding: .5em 0;
+  margin: 0;
+}
+
+.menu {
+  color: white;
+  list-style: none;
+}
+
+.menu li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@keyframes animateRightToLeft {
+  from {
+    opacity: 0;
+    right: -200px;
+  }
+  to {
+    opacity: 1;
+    right: 0;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .menu {
+    background-color: var(--gray-color);
+    height: 300px;
+    padding: 1em;
+    position: absolute;
+    right: -200px;
+    text-align: right;
+    top: 188px;
+    width: 200px;
+    z-index: 1;
   }
   
-  body {
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-    padding: 0;
+  .menu li {
+    padding: 1em 0;
   }
-  
-  .logo > img {
-    width: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-evenly;
   }
-  
+
+  .social {
+    gap: 0;
+    justify-content: space-around;
+  }
+
+  .menu {
+    top: 134px;
+  }
+
+  footer {
+    border-top: 1px solid var(--lightgray-color);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    gap: 4em;
+    justify-content: center;
+  }
+
+  main {
+    display: flex;
+  }
+
+  main section {
+    flex: 1;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    gap: 2em;
+    justify-content: flex-end;
+    padding: 0 1em;
+    position: relative;
+    top: 0;
+  }
+}
